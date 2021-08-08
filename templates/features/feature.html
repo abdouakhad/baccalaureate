@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+
+{% load static%}
+
+{% block content %}
+<!-- Showcase -->
+<section style="background-image: url('{% static "img/12-bg-search.png"%}');background-repeat:no-repeat;
+background-position: center center;background-size: cover;" class=" showcase-3 mb-8">
+    <div class=" container md:w-10/12 m-auto h-full">
+        <div class="in-showcase-1 text-center py-7 flex  flex-col justify-center items-center">
+            <div>
+                <h1 class="text-4xl my-5 font-black tracking-widest">Chercher Les Resultats De Tous Les Eleves</h1>
+                <p class="tracking-wide md:text-2xl sm:text-xl md:leading-loose sm:leading-relaxed">Lorem ipsum
+                    dolor sit amet,
+                    consectetur
+                    adipisicing elit.
+                    Quibusdam accusantium
+                    .
+                </p>
+            </div>
+            <form action="#" method="post" class=" w-full">
+                <div class="column md:flex md:flex-col grid grid-cols-1 gap-x-3">
+                    <div class="col1 md:flex md:flex-row grid grid-cols-1 w-full gap-2">
+                        <div class="my-2 md:w-1/3 w-full">
+                            <label class="block text-my-gray text-sm font-bold mb-2" for="numero"></label>
+                            <input
+                                class="bg-my-blue appearance-none border rounded w-full py-2 px-3 text-my-blue leading-tight focus:outline-none focus:ring-2 focus:ring-my-green focus:border-transparent"
+                                placeholder="numero de l'élève" autofocus type="number" name="numero" value=''>
+                        </div>
+                        <div class="my-2 md:w-1/3 w-full">
+                            <label class="block text-my-gray text-sm font-bold mb-2" for="jury"></label>
+                            <input
+                                class="bg-my-blue appearance-none border rounded w-full py-2 px-3 text-my-blue leading-tight focus:outline-none focus:ring-2 focus:ring-my-green focus:border-transparent"
+                                placeholder='numéro du jury' type="number" name="jury" value=''>
+                        </div>
+                        <div class="my-2 md:w-1/3 w-full">
+                            <label class="block text-my-gray text-sm font-bold mb-2" for="school"></label>
+                            <input
+                                class="bg-my-blue appearance-none border rounded w-full py-2 px-3 text-my-blue leading-tight focus:outline-none focus:ring-2 focus:ring-my-green focus:border-transparent"
+                                placeholder='nom du lycée' type="text" name="school" value=''>
+                        </div>
+                    </div>
+                    <div class="col2 md:flex md:flex-row w-full grid grid-cols-1 gap-2">
+                        <!-- Region -->
+                        <select class='my-2 h-9 md:w-1/3 w-full bg-my-blue rounded px-3 rounded'>
+                            <option selected='true' disabled='disabled'>chercher par région</option>
+                            <option>Dakar</option>
+                            <option>Thies</option>
+                            <option>Ziguinchor</option>
+                            <option>Diourbel</option>
+                            <option>Saint-Louis</option>
+                            <option>Tambacounda</option>
+                            <option>Louga</option>
+                            <option>Fatick</option>
+                            <option>Kolda</option>
+                            <option>Matam</option>
+                            <option>Kaffrine</option>
+                            <option>Kédougou</option>
+                            <option>Sédhiou</option>
+                        </select>
+                        <!-- Town -->
+                        <select class='my-2 h-9 md:w-1/3 w-full bg-my-blue rounded px-3 rounded'>
+                            <option selected='true' disabled='disabled'>chercher par ville</option>
+                            <option>Dakar</option>
+                            <option>Pikine </option>
+                            <option>Guédiawaye </option>
+                            <option>Thiès </option>
+                            <option>Kaolack </option>
+                            <option>Mbour </option>
+                            <option>Saint-Louis </option>
+                            <option>Rufisque </option>
+                            <option>Ziguinchor </option>
+                            <option>Diourbel </option>
+                            <option>Louga </option>
+                            <option>Tambacounda </option>
+                        </select>
+                        <!-- Department -->
+                        <select class='my-2 h-9 md:w-1/3 w-full bg-my-blue rounded px-3 rounded'>
+                            <option selected='true' disabled='disabled'>chercher par department</option>
+                            <option>Dakar </option>
+                            <option>Guédiawaye </option>
+                            <option>Pikine </option>
+                            <option>Rufisque </option>
+                            <option>Diourbel</option>
+                            <option>Bambey </option>
+                            <option>Mbacké </option>
+                            <option>Fatick </option>
+                            <option>Foundiougne </option>
+                            <option>Gossas</option>
+                            <option>Kaolack </option>
+                            <option>Guinguinéo </option>
+                            <option>Nioro du Rip </option>
+                            <option>Kolda </option>
+                        </select>
+
+                    </div>
+                </div>
+                <button
+                    class="text-xl bg-my-green w-full hover:bg-green-700 text-white font-bold my-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                    chercher
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% comment "This will be included depending on the outcome of the result." %}
+
+{% include "includes/_demande.html" %} -->
+{% include "includes/_success.html" %}
+{% include "includes/_fail.html" %}
+{% include "includes/_school.html" %}
+
+{% endcomment %}
+
+
+
+
+<!-- Table -->
+<div class="table overflow-x-auto container md:w-10/12 m-auto">
+    <table class="w-full border text-black text-center">
+        <thead class="bg-my-green h-14 uppercase text-white font-black">
+            <tr class="">
+                <th class="">rang</th>
+                <th class="">&#8470;</th>
+                <th class="">Nom</th>
+                <th class="hide">Naissance</th>
+                <th class="hide">lieu</th>
+                <th class="hide">Jury</th>
+                <th class="">Moyenne</th>
+                <th class="hide">Mension</th>
+                <th class="">Serie</th>
+        </thead>
+        <tbody class="text-thin">
+            <tr class="h-10 ">
+                <td>1</td>
+                <td>102345</td>
+                <td>Moustapha Sall</td>
+                <td class="hide">10-02-2000</td>
+                <td class="hide">Dakar</td>
+                <td class="hide">2345</td>
+                <td>18,43</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie L</td>
+            <tr class="h-10 bg-my-gray text-white ">
+                <td>2</td>
+                <td>145609</td>
+                <td>Amadou Diouf</td>
+                <td class="hide">10-02-2001</td>
+                <td class="hide">Diourbell</td>
+                <td class="hide">2019</td>
+                <td>18,40</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie S</td>
+            </tr>
+            <tr class="h-10 ">
+                <td>3</td>
+                <td>170987</td>
+                <td>Sadibou Ndao </td>
+                <td class="hide">11-05-2000</td>
+                <td class="hide">thies</td>
+                <td class="hide">8480</td>
+                <td>18,36</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie T</td>
+            <tr class="h-10 bg-my-gray text-white ">
+                <td>4</td>
+                <td>098765</td>
+                <td>Hamidou Fall</td>
+                <td class="hide">07-12-2001</td>
+                <td class="hide">Saloum</td>
+                <td class="hide">4317</td>
+                <td>18,31</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie S</td>
+            </tr>
+            <tr class="h-10 ">
+                <td>5</td>
+                <td>123572</td>
+                <td>Maimouna Diouf</td>
+                <td class="hide">10-02-2000</td>
+                <td class="hide">Pikine</td>
+                <td class="hide">1546</td>
+                <td>18,27</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie S</td>
+            <tr class="h-10 bg-my-gray text-white ">
+                <td>6</td>
+                <td>145609</td>
+                <td>Amadou Diouf</td>
+                <td class="hide">10-02-2001</td>
+                <td class="hide">Diourbell</td>
+                <td class="hide">2019</td>
+                <td>18,40</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie S</td>
+            </tr>
+            <tr class="h-10 ">
+                <td>7</td>
+                <td>102345</td>
+                <td>Moustapha Sall</td>
+                <td class="hide">10-02-2000</td>
+                <td class="hide">Dakar</td>
+                <td class="hide">2345</td>
+                <td>18,43</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie L</td>
+            <tr class="h-10 bg-my-gray text-white ">
+                <td>8</td>
+                <td>109609</td>
+                <td>Abdallah Ndao</td>
+                <td class="hide">07-02-2001</td>
+                <td class="hide">Diourbell</td>
+                <td class="hide">2019</td>
+                <td>18,39</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie S</td>
+            </tr>
+            <tr class="h-10 ">
+                <td>9</td>
+                <td>102345</td>
+                <td>Moustapha Sall</td>
+                <td class="hide">10-02-2000</td>
+                <td class="hide">Dakar</td>
+                <td class="hide">2345</td>
+                <td>18,43</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie L</td>
+            <tr class="h-10 bg-my-gray text-white ">
+                <td>10</td>
+                <td>145609</td>
+                <td>Amadou Diouf</td>
+                <td class="hide">10-02-2001</td>
+                <td class="hide">Diourbell</td>
+                <td class="hide">2019</td>
+                <td>18,40</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie S</td>
+            </tr>
+            <tr class="h-10 ">
+                <td>11</td>
+                <td>102345</td>
+                <td>Moustapha Sall</td>
+                <td class="hide">10-02-2000</td>
+                <td class="hide">Dakar</td>
+                <td class="hide">2345</td>
+                <td>18,43</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie L</td>
+            <tr class="h-10 bg-my-gray text-white ">
+                <td>12</td>
+                <td>145609</td>
+                <td>Amadou Diouf</td>
+                <td class="hide">10-02-2001</td>
+                <td class="hide">Diourbell</td>
+                <td class="hide">2019</td>
+                <td>18,40</td>
+                <td class="hide">Tres Bien</td>
+                <td>Serie S</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class=" mb-5 bg-my-green h-10 w-full uppercase text-black font-black">
+
+    </div>
+</div>
+<script>
+    //JS MODALS
+    all_modals = ['main-modal', 'another-modal']
+    all_modals.forEach((modal) => {
+        const modalSelected = document.querySelector('.' + modal);
+        modalSelected.classList.remove('fadeIn');
+        modalSelected.classList.add('fadeOut');
+        modalSelected.style.display = 'none';
+    })
+    const modalClose = (modal) => {
+        const modalToClose = document.querySelector('.' + modal);
+        modalToClose.classList.remove('fadeIn');
+        modalToClose.classList.add('fadeOut');
+        setTimeout(() => {
+            modalToClose.style.display = 'none';
+        }, 500);
+    }
+
+    const openModal = (modal) => {
+        const modalToOpen = document.querySelector('.' + modal);
+        modalToOpen.classList.remove('fadeOut');
+        modalToOpen.classList.add('fadeIn');
+        modalToOpen.style.display = 'flex';
+    }
+</script>
+{% endblock %}

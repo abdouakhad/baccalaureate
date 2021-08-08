@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'); */
+body{
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+/* Styling the top bar and the Navbar */
+.w-iconWidth{
+    border-radius: 5px;
+}
+li .w-iconWidth:hover{
+    box-shadow: 2px 2px .5px  #000000;
+}
+.linked:hover{
+    box-shadow: 2px 2px .5px  #6B7280;
+}
+.text-green a{
+    font-weight: bold;
+}
+.text-green a:hover{
+    color: #6EE7B7;
+}
+.link:hover{
+    color: #D1D5DB;
+}
+.font-bold{
+    font-weight: bolder;
+}
+
+/* Table */
+.table{
+    overflow-x: auto;
+}
+
+/* Styling the showcase area */
+.showcase{
+    background-image: url('img/1-bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/* .my-width{
+    width: 420px;
+} */
+@media (max-width: 915px){
+    .container{
+        width: 95%;
+    }
+}
+
+@media (max-width: 804px){
+    .container{
+        font-size:15px;
+    }
+}
+
+@media (max-width:769px){
+    .w-iconWidth{
+        width: 20px;
+    }.hide{
+        display: none;
+    }
+    li .w-iconWidth:hover{
+        box-shadow: 0px 0px 0px  #000000;
+    }
+}
+
+@media(max-width:769px){}
+/* Styling the about page */
+
+.showcase-2{
+    background-image: url('../images/6-bg-about.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.in-showcase{
+    height: 400px;
+}
+.home{
+    font-weight:bolder;
+}
+
+/* Styling the Particularity page */
+
+.showcase-3{
+    background-image: url('../images/12-bg-search.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.faster {
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Styling the dashboard page */
+
+.showcase-4{
+    background-image: url('../images/13-dash-bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
