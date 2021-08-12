@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content%}
+<!-- Showcase -->
+<!-- If any messages -->
+{% if messages %}
+{% for message in messages %}
+<div id="message"
+    class="text-center my-3 container md:w-8/12 m-auto bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+    role="alert">
+    <strong class="font-bold">{{message.level }}</strong>
+    <span class="block sm:inline">{{ message}}</span>
+</div>
+{% endfor %}
+{% endif %}
+<section class="showcase-4 mb-8" style="background-image: url('{% static "img/12-bg-search.png"%}'); ;background-repeat:no-repeat;
+background-position: center center;background-size: cover;">
+    <div class="container md:w-10/12 m-auto h-full">
+        <div class="in-showcase text-center py-7 flex  justify-center items-center">
+            <div>
+                <h1 class="text-4xl my-5 font-black tracking-widest">Les Infos De l'Utilisateurs</h1>
+                <p class="tracking-wide md:text-2xl sm:text-xl md:leading-loose sm:leading-relaxed">Lorem ipsum
+                    dolor sit amet,
+                    consectetur
+                    adipisicing elit.
+                    Quibusdam accusantium
+                    similique laborum
+                    maiores dolores ea?
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcroms -->
+
+<div class="container md:w-10/12 m-auto h-full mb-8">
+    <div class="bredcrumbs bg-my-green rounded p-2 flex items-end">
+        <img src="../../svg/10-home-solid.svg" class="w-iconWidth inline mr-2" alt="">
+        <a href="index.html" class="font-black text-my-blue home">Home </a>
+        <span class="font-thin text-my-blue"> <span> </span> / dashboard</span>
+    </div>
+</div>
+
+<!-- Welcome Sentence -->
+
+<div class="welcome my-5 container md:w-10/12 m-auto h-full text-black">
+    <h3 class=' font-black text-xl mb-3'>
+        Bienvenue
+    </h3>
+    <p class=' font-thin text-base'> Voici en dessous les candidats que vous voudriez suivre.</p>
+</div>
+
+<!-- Table Dashboard -->
+
+<!-- Table -->
+<div style="overflow-x: auto;" class="table overflow-x-auto container md:w-10/12 m-auto">
+    <table class="w-full border text-black text-center">
+        <thead class="bg-my-blue h-14 uppercase text-white font-black">
+            <tr class="font-black text-xl">
+                <th class="font-black text-xl">&#8470;</th>
+                <th class="font-black text-xl tracking-widest">prenom et nom</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="text-thin">
+            <tr class="h-10 p-1">
+                <td>102345</td>
+                <td> Moustapha Sall</td>
+                <td><a href="#" class="bg-my-green rounded p-2 text-white hover:bg-green-700">voir résultat</a></td>
+            </tr>
+            <tr class="h-10 p-1">
+                <td>087345</td>
+                <td>Zahra Ndoye</td>
+                <td><a href="#" class="bg-my-green rounded p-2 text-white hover:bg-green-700">voir résultat</a></td>
+            </tr>
+            <tr class="h-10 p-1">
+                <td>034590</td>
+                <td> Abdallah Lo</td>
+                <td><a href="#" class="bg-my-green rounded p-2 text-white hover:bg-green-700">voir résultat</a></td>
+            </tr>
+            <tr class="h-10 p-1 ">
+                <td>110987</td>
+                <td>Karim Abdou Djabar </td>
+                <td><a href="#" class="bg-my-green rounded p-2 text-white hover:bg-green-700">voir résultat</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class=" mb-5 bg-my-blue h-10 w-full uppercase text-black font-black">
+
+    </div>
+</div>
+{% endblock %}

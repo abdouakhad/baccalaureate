@@ -13,22 +13,43 @@
                 <a href="#" class="text-2xl">BAC</a>
             </div>
             <ul class="hidden md:flex  md:col-span-2 justify-self-center items-center text-center ">
-                <li class="mr-5 text-my-green border-b-2">
+                <li {% if '/' == request.path  %} class="mr-5 text-my-green border-b-2 border-my-green" {% else %}
+                    class="mr-5 " {% endif %}>
                     <a href="{% url 'index' %}" class=" block">Accueil
                     </a>
                 </li>
-                <li class="mr-5">
+                <li {% if '/a-propos' in request.path  %} class="mr-5 text-my-green border-b-2 border-my-green"
+                    {% else %} class="mr-5 " {% endif %}>
                     <a href="{% url 'about' %}" class='link block'> A propos </a>
                 </li>
-                <li>
+                <li {% if '/liste' in request.path  %} class="mr-5 text-my-green border-b-2 border-my-green" {% else %}
+                    class="mr-5 " {% endif %}>
                     <a href="{% url 'feature' %}" class="link block"> Particularite</a>
                 </li>
             </ul>
+            {% if user.is_authenticated %}
             <ul class="hidden md:flex justify-self-end  items-center">
-                <li class="mr-2 bg-my-green rounded px-1 hover:bg-green-700"><a href="login.html" class='block'> se
-                        connecter </a></li>
-                <li class="bg-my-gray px-1 rounded"><a href="register.html" class='block'>s'inscrire</a></li>
+                <li class="mr-2 text-gray-200 rounded px-1 bg-my-green">
+                    <a href="{% url 'dashboard' %}" class='link block'> Dashboard </a>
+                </li>
+                <li class="bg-my-gray px-1 rounded">
+                    <a href=" javascript:{document.getElementById('logout').submit()}">
+                        deconnection
+                    </a>
+                    <form action="{% url 'logout' %}" id="logout" method="post">
+                        {% csrf_token %}
+                        <input type="hidden">
+                    </form>
+                </li>
             </ul>
+            {% else%}
+            <ul class="hidden md:flex justify-self-end  items-center">
+                <li class="mr-2 bg-my-green rounded px-1 hover:bg-green-700"><a href="{% url 'login' %}" class='block'>
+                        se
+                        connecter </a></li>
+                <li class="bg-my-gray px-1 rounded"><a href="{% url 'register' %}" class='block'>s'inscrire</a></li>
+            </ul>
+            {% endif %}
             <div class="md:hidden  justify-self-end">
                 <button class="outline-none mobile-menu-button">
                     <svg class=" w-6 h-6 text-my-gray-500 hover:text-my-green-500 " x-show="!showMenu" fill="none"
@@ -49,15 +70,31 @@
         <li class="link border-b-2 border-my-blue"><a href="{% url 'about' %}"
                 class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">About</a>
         </li>
-        <li class="link border-b-2 border-my-blue"><a href="feature.html"
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'feature' %}"
                 class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">Particularite</a>
         </li>
-        <li class="link border-b-2 border-my-blue"><a href="login.html"
+        {% if user.is_authenticated %}
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'dashboard' %}"
+                class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">Dashboard</a>
+        </li>
+        <li class="bg-my-gray px-1 rounded border-b-2 border-my-blue">
+            <a href=" javascript:{document.getElementById('logout').submit()}"
+                class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">
+                deconnection
+            </a>
+            <form action="{% url 'logout' %}" id="logout" method="post">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
+        </li>
+        {% else %}
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'login' %}"
                 class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">Se connecter</a>
         </li>
-        <li class="link border-b-2 border-my-blue"><a href="register.html"
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'register' %}"
                 class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">S'inscrire</a>
         </li>
+        {% endif %}
     </ul>
 </div>
 <script>

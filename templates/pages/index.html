@@ -17,10 +17,11 @@ background-position: center center;background-size: cover;">
                     </p>
                 </div>
                 <div class="btn my-3 font-black">
-                    <a type="button" href='feature.html'
-                        class='bg-my-blue w-28 rounded mr-2 hover:bg-blue-900 hover:text-white'>Chercher
+
+                    <a href='feature.html'
+                        class='bg-blue-700 p-1 pl-2 w-28 rounded mr-2 hover:bg-blue-900 hover:text-white'>Chercher
                     </a>
-                    <a type="button" href='#table' class='bg-my-green w-28 rounded hover:bg-green-700 '>Voir
+                    <a href='#table' class='p-1 pl-2  bg-my-green w-28 rounded hover:bg-green-700 '>Voir
                         meilleur
                     </a>
                 </div>
@@ -35,6 +36,17 @@ background-position: center center;background-size: cover;">
 <!-- Serie Section -->
 
 <div class="serie my-7">
+    <!-- If any messages -->
+    {% if messages %}
+    {% for message in messages %}
+    <div id="message"
+        class="text-center my-3 container md:w-8/12 m-auto bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+        role="alert">
+        <strong class="font-bold">{{message.level }}</strong>
+        <span class="block sm:inline">{{ message}}</span>
+    </div>
+    {% endfor %}
+    {% endif %}
     <div class="grid container md:w-10/12 m-auto md:grid-cols-3 sm:grid-cols-1 gap-5 text-black ">
         <div class="serie-s bg-my-gray p-8 rounded text-white text-center">
             <div class="img-flex flex justify-center mb-4 ">
@@ -102,7 +114,7 @@ background-position: center center;background-size: cover;">
 <div class="table overflow-x-auto container md:w-10/12 m-auto">
     <table class="w-full border text-black text-center" id="table">
         <thead class="bg-my-green h-14 uppercase text-white font-black">
-            <tr class="">
+            <tr class="h-14">
                 <th class="">rang</th>
                 <th class="">&#8470;</th>
                 <th class="">Nom</th>
