@@ -1,0 +1,93 @@
+<!-- Nav-bar -->
+<nav class='bg-my-blue'>
+    <div class="container md:w-10/12 m-auto ">
+        <div class="h-20 nav grid md:grid-cols-4 md:gap-4 items-center grid-cols-2">
+            <div class="logo flex-none ">
+                <svg class='w-iconWidth ml-2' aria-hidden="true" focusable="false" data-prefix="fas"
+                    data-icon="graduation-cap" class="svg-inline--fa fa-graduation-cap fa-w-20" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                    <path fill="white"
+                        d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z">
+                    </path>
+                </svg>
+                <a href="#" class="text-2xl">BAC</a>
+            </div>
+            <div class="hidden md:flex  md:col-span-2 justify-self-center items-center text-center ">
+                <p class="text-xl font-bold leading-loose text-my-green uppercase">Page des jury</p>
+            </div>
+            {% if user.is_authenticated %}
+            <ul class="hidden md:flex justify-self-end  items-center">
+
+                <li class="bg-my-gray px-1 rounded">
+                    <a href=" javascript:{document.getElementById('logout').submit()}">
+                        deconnection
+                    </a>
+                    <form action="{% url 'logout_admin' %}" id="logout" method="post">
+                        {% csrf_token %}
+                        <input type="hidden">
+                    </form>
+                </li>
+            </ul>
+            {% else%}
+            <ul class="hidden md:flex justify-self-end  items-center">
+                <li class="mr-2 bg-my-green rounded px-1 hover:bg-green-700"><a href="{% url 'login_admin' %}"
+                        class='block'>
+                        se
+                        connecter </a></li>
+                <li class="bg-my-gray px-1 rounded"><a href="{% url 'register_admin' %}" class='block'>s'inscrire</a>
+                </li>
+            </ul>
+            {% endif %}
+            <div class="md:hidden  justify-self-end">
+                <button class="outline-none mobile-menu-button">
+                    <svg class=" w-6 h-6 text-my-gray-500 hover:text-my-green-500 " x-show="!showMenu" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="hidden mobile-menu text-center">
+    <ul class="bg-my-gray">
+        <li class="link border-b-2 border-my-blue "><a href="{% url 'index' %}"
+                class="block text-sm px-2 py-4 text-my-green font-semibold">Home</a>
+        </li>
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'about' %}"
+                class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">About</a>
+        </li>
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'feature' %}"
+                class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">Particularite</a>
+        </li>
+        {% if user.is_authenticated %}
+
+        <li class="bg-my-gray px-1 rounded border-b-2 border-my-blue">
+            <a href=" javascript:{document.getElementById('logout').submit()}"
+                class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">
+                deconnection
+            </a>
+            <form action="{% url 'logout_admin' %}" id="logout" method="post">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
+        </li>
+        {% else %}
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'login_admin' %}"
+                class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">Se connecter</a>
+        </li>
+        <li class="link border-b-2 border-my-blue"><a href="{% url 'register_admin' %}"
+                class="block text-sm px-2 py-4 hover:bg-my-green-500 transition duration-300">S'inscrire</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+<script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+</script>

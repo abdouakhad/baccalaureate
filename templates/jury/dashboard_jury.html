@@ -1,0 +1,259 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Showcase For Admin -->
+<section class="showcase-5 my-5  ">
+    <div class="container md:w-10/12 m-auto h-full bg-my-green py-5 pb-12 px-4 rounded-lg">
+        <p class="font-black text-lg my-1 bg-my-blue w-1/2 m-auto py-3 rounded-lg text-center my-7 text-white">
+            Dashboard
+        </p>
+        <div class="grid sm:grid-cols-4 grid-cols-2 gap-2">
+            <div class="jury rounded-lg  jury bg-blue-900">
+                <div class="p-2 pb-6 flex justify-between items-center">
+                    <div class="jury">
+                        <p class="font-bold text-lg">159</p>
+                        <p class="text-sm font-thin">Jury</p>
+                    </div>
+                    <div class="icon">
+                        <svg class='w-7' aria-hidden="true" focusable="false" data-prefix="fas" data-icon="gavel"
+                            class="svg-inline--fa fa-gavel fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512">
+                            <path fill="#B45309"
+                                d="M504.971 199.362l-22.627-22.627c-9.373-9.373-24.569-9.373-33.941 0l-5.657 5.657L329.608 69.255l5.657-5.657c9.373-9.373 9.373-24.569 0-33.941L312.638 7.029c-9.373-9.373-24.569-9.373-33.941 0L154.246 131.48c-9.373 9.373-9.373 24.569 0 33.941l22.627 22.627c9.373 9.373 24.569 9.373 33.941 0l5.657-5.657 39.598 39.598-81.04 81.04-5.657-5.657c-12.497-12.497-32.758-12.497-45.255 0L9.373 412.118c-12.497 12.497-12.497 32.758 0 45.255l45.255 45.255c12.497 12.497 32.758 12.497 45.255 0l114.745-114.745c12.497-12.497 12.497-32.758 0-45.255l-5.657-5.657 81.04-81.04 39.598 39.598-5.657 5.657c-9.373 9.373-9.373 24.569 0 33.941l22.627 22.627c9.373 9.373 24.569 9.373 33.941 0l124.451-124.451c9.372-9.372 9.372-24.568 0-33.941z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rounded-b-lg p-2 bg-blue-800">
+                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                                </path>
+                            </svg></a>
+                    </p>
+                </div>
+            </div>
+            <div class="jury rounded-lg  jury bg-red-900">
+                <div class="p-2 pb-6 flex justify-between items-center">
+                    <div class="jury">
+                        <p class="font-bold text-lg">20.324</p>
+                        <p class="text-sm font-thin">Admin</p>
+                    </div>
+                    <div class="icon">
+                        <svg class="w-7" aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="user-graduate" class="svg-inline--fa fa-user-graduate fa-w-14" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="#60A5FA"
+                                d="M319.4 320.6L224 416l-95.4-95.4C57.1 323.7 0 382.2 0 454.4v9.6c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-9.6c0-72.2-57.1-130.7-128.6-133.8zM13.6 79.8l6.4 1.5v58.4c-7 4.2-12 11.5-12 20.3 0 8.4 4.6 15.4 11.1 19.7L3.5 242c-1.7 6.9 2.1 14 7.6 14h41.8c5.5 0 9.3-7.1 7.6-14l-15.6-62.3C51.4 175.4 56 168.4 56 160c0-8.8-5-16.1-12-20.3V87.1l66 15.9c-8.6 17.2-14 36.4-14 57 0 70.7 57.3 128 128 128s128-57.3 128-128c0-20.6-5.3-39.8-14-57l96.3-23.2c18.2-4.4 18.2-27.1 0-31.5l-190.4-46c-13-3.1-26.7-3.1-39.7 0L13.6 48.2c-18.1 4.4-18.1 27.2 0 31.6z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rounded-b-lg p-2 bg-red-800">
+                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                                </path>
+                            </svg></a>
+                    </p>
+                </div>
+            </div>
+            <div class="jury rounded-lg  jury bg-purple-900">
+                <div class="p-2 pb-6 flex justify-between items-center">
+                    <div class="jury">
+                        <p class="font-bold text-lg">1.092</p>
+                        <p class="text-sm font-thin">Utilisateurs</p>
+                    </div>
+                    <div class="icon">
+                        <svg class="w-7" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user"
+                            class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path fill="#10B981"
+                                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rounded-b-lg p-2 bg-purple-800">
+                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                                </path>
+                            </svg></a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="jury rounded-lg  jury bg-pink-900">
+                <div class="p-2 pb-6 flex justify-between items-center">
+                    <div class="jury">
+                        <p class="font-bold text-lg">58.65</p>
+                        <p class="text-sm font-thin">Pourcentage</p>
+                    </div>
+                    <div class="icon">
+                        <svg class='w-7' aria-hidden="true" focusable="false" data-prefix="fas" data-icon="percentage"
+                            class="svg-inline--fa fa-percentage fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 384 512">
+                            <path fill="#D1D5DB"
+                                d="M109.25 173.25c24.99-24.99 24.99-65.52 0-90.51-24.99-24.99-65.52-24.99-90.51 0-24.99 24.99-24.99 65.52 0 90.51 25 25 65.52 25 90.51 0zm256 165.49c-24.99-24.99-65.52-24.99-90.51 0-24.99 24.99-24.99 65.52 0 90.51 24.99 24.99 65.52 24.99 90.51 0 25-24.99 25-65.51 0-90.51zm-1.94-231.43l-22.62-22.62c-12.5-12.5-32.76-12.5-45.25 0L20.69 359.44c-12.5 12.5-12.5 32.76 0 45.25l22.62 22.62c12.5 12.5 32.76 12.5 45.25 0l274.75-274.75c12.5-12.49 12.5-32.75 0-45.25z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rounded-b-lg p-2 bg-pink-800">
+                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                                </path>
+                            </svg></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Best Result Sections -->
+
+<div class="best-result container md:w-10/12 m-auto">
+    <div class="title-best sm:w-96 m-auto my-7 bg-my-green p-3 rounded text-center text-lg">
+        <p class="font-black ">
+            Avancement Des travaux
+        </p>
+    </div>
+</div>
+
+<div class="grid md:grid-cols-2 grid-cols-1 my-4">
+    <!-- Table -->
+    <div class="table overflow-x-auto container md:w-10/12 m-auto">
+        <p class="text-center bg-my-gray p-auto m-auto my-3 p-4 uppercase text-white font-black leading-loose">
+            travail lent
+        </p>
+        <table class="w-full border text-black text-center" id="table">
+            <thead class="bg-my-green h-14 uppercase text-white font-black">
+                <tr class="h-14">
+                    <th class="">&#8470;</th>
+                    <th class="">Chef de Jury </th>
+                    <th>Telephone</th>
+                    <th>lieu</th>
+                    <th></th>
+            </thead>
+            <tbody class="text-thin">
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- Table -->
+    <div class="table overflow-x-auto container md:w-10/12 m-auto">
+        <p class="text-center bg-my-gray p-auto m-auto my-3 p-4 uppercase text-white font-black leading-loose">
+            travail avancé
+        </p>
+        <table class="w-full border text-black text-center" id="table">
+            <thead class="bg-my-green h-14 uppercase text-white font-black">
+                <tr class="h-14">
+                    <th class="">&#8470;</th>
+                    <th class="">Chef de Jury </th>
+                    <th>Telephone</th>
+                    <th>lieu</th>
+                    <th></th>
+            </thead>
+            <tbody class="text-thin">
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

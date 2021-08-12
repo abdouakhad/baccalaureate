@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib import messages, auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-
+from .decorators import unauthenticated_user, allowed_users
 
 # Create your views here.
 
-@unauthenticated_user
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -48,6 +48,8 @@ def register(request):
             user = User.objects.create_user(
                 first_name=first_name, last_name=last_name, email=email, password=password1, username=username)
             messages.success(request, 'Vous etes maintenant inscrit.')
+            group = Group.objects.get(name='client')
+            user.groups.add(group)
             return redirect('index')
         else:
             messages.error(request, 'Les mots de passe ne se ressemblent pas')
@@ -56,6 +58,6 @@ def register(request):
     return render(request, 'accounts/register.html')
 
 
-@login_required(login_url='login')
+@ login_required(login_url='login')
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')

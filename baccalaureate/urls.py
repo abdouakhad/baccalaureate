@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('liste/', include('liste.urls')),
     path('compte/', include('accounts.urls')),
+    path('jury/', include('jury.urls')),
     path('admin/', admin.site.urls),
 ]
 if(settings.DEBUG):
