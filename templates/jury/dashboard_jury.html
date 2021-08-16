@@ -137,12 +137,12 @@
             class="w-full px-2  w-full bg-gray-300 rounded-b py-2 pb-12">
             {% csrf_token %}
             <div class="grid grid-cols-1 >
-                <div class="">
-                    {% render_field form.jury name='jury' class='my-2 h-9  w-full bg-my-blue rounded px-3 rounded' %}
+                <div class="" >
+                    {% render_field form.jury  name='jury'  class='my-2 h-9 jury w-full bg-my-blue rounded px-3 rounded' %}
                 </div>
                 <div class="">
                     <!-- <label for=" {{ form.student.id_for_label }}">Student </label> -->
-                {% render_field form.student class='my-2 h-9  w-full bg-my-blue rounded px-3 rounded' %}
+                {% render_field form.student class='my-2 h-9  w-full bg-my-blue rounded px-3' %}
             </div>
             <div class="">
                 {% render_field form.grades  placeholder='la note' class='my-2 h-9  w-full bg-my-blue rounded px-3 rounded' %}
@@ -158,11 +158,11 @@
         </form>
     </div>
     <!-- Table -->
-    <div class="table overflow-x-auto container  ">
+    <div class="table overflow-x-auto container ">
         <p class="text-center bg-my-gray p-auto m-auto tracking-widest p-4 uppercase text-white font-black rounded-t">
             Dernier ajouté
         </p>
-        <table class="w-full border text-black  rounded-b text-center" id="table">
+        <table class="w-full border text-black  rounded-b-xl text-center" id="table">
             <thead class="bg-my-green h-14 uppercase text-white font-black">
                 <tr class="h-14">
                     <th class="">&#8470;</th>
@@ -171,12 +171,14 @@
                     <th>Appreciations</th>
                     <th></th>
             </thead>
-            <tbody class="text-thin bg-gray-300">
+            <tbody class="text-thin bg-gray-300 rounded">
+                {% for grade in display_grades %}
+                {% if forloop.counter < 9%}
                 <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>12,03</td>
-                    <td>Assez-Bien </td>
+                    <td> {{grade.student.student_number}}</td>
+                    <td> {{ grade.student.first_name }} {{grade.student.last_name }}</td>
+                    <td> {{grade.grades}}</td>
+                    <td> {{grade.appreciations}}</td>
                     <td><a class=" text-white hover: py-1 px-2 rounded " href="">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
                                 class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
@@ -187,66 +189,9 @@
                             </svg></a>
                     </td>
                 </tr>
-                <tr class="h-10 ">
-                    <td>2</td>
-                    <td>Ousmane Ba</td>
-                    <td>13,14</td>
-                    <td>Assez-bien </td>
-                    <td><a class=" text-white hover: py-1 px-2 rounded " href="">
-                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
-                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path fill="#1E40AF"
-                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                                </path>
-                            </svg></a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>3</td>
-                    <td>Smba Ba</td>
-                    <td>15.45 </td>
-                    <td>Bien </td>
-                    <td><a class=" text-white hover: py-1 px-2 rounded " href="">
-                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
-                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path fill="#1E40AF"
-                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                                </path>
-                            </svg></a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    < <td><a class=" text-white hover: py-1 px-2 rounded " href="">
-                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
-                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path fill="#1E40AF"
-                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                                </path>
-                            </svg></a>
-                        </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class=" text-white hover: py-1 px-2 rounded " href="">
-                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
-                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path fill="#1E40AF"
-                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
-                                </path>
-                            </svg></a>
-                    </td>
-                </tr>
+                {% endif %}
+                {% endfor %}
+
             </tbody>
         </table>
     </div>
@@ -259,5 +204,11 @@
 
 <!-- Best Result Sections -->
 
+<script>
+    document.getElementById('id_jury').value = '{{ jury_number }}';
+    //This can allow me to select the second person all the time 
+    //$("#id_student").prop("selectedIndex", 1);
+    document.getElementById("id_student").options[0].innerHTML = "Les Eleves";
+</script>
 
 {% endblock %}

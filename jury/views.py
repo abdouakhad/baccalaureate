@@ -91,32 +91,33 @@ def logout_admin(request):
 def dashboard_jury(request):
     jury = Jury.objects.get(user=request.user)
     jury_number = jury.jury_number
-    print(jury_number)
+
+    # Importing all our modelss
+    grades = Grade.objects.filter(jury=jury_number)
+    student = Liste.objects.filter(jury_number=jury_number)
     form = GradeForm()
+
     form.fields['student'].queryset = Liste.objects.filter(
-        jury_number=jury_number)
+        jury_number=jury_number, choosen=False)
+
     form.fields['jury'].queryset = Jury.objects.filter(
         jury_number=jury_number)
 
     if request.method == 'POST':
-        # print(request.POST)
         form = GradeForm(request.POST)
-
-        print(Liste.objects.filter(
-            jury_number=jury_number))
-
         if form.is_valid():
             print('Yes Form is Valid')
+            the_student = Liste.objects.get(pk=form.instance.student.pk)
+            print(the_student)
+            the_student.choosen = True
+            the_student.save()
             form.save()
             return redirect('dashboard_jury')
 
-    # Importing all our models
-
-    grades = Grade.objects.filter(jury=jury_number)
-    student = Liste.objects.filter(jury_number=jury_number)
-
     # Counting the number of students that succeed
-    admin = grades.filter(grades__gte=10)
+    admin = grades.filter(grades__gte=10).order_by('-created_date')
+    display_grades = admin
+
     admin = admin.count()
 
     # Counting the overall number of student
@@ -134,5 +135,6 @@ def dashboard_jury(request):
         'jury_number': jury_number,
         'admin': admin,
         'percentage': percentage,
+        'display_grades': display_grades,
     }
     return render(request, 'jury/dashboard_jury.html', context)
