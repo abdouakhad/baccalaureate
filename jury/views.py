@@ -1,17 +1,17 @@
+from liste.models import Liste
+from pages.models import Grade
+from .forms import GradeForm
+from accounts.decorators import unauthenticated_user, unauthenticated_user2, allowed_users
+from .models import Jury
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, Group
 from django.contrib import messages, auth
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
-from .models import Jury
-
-from accounts.decorators import unauthenticated_user, unauthenticated_user2, allowed_users
-from .forms import GradeForm
-from pages.models import Grade
-from liste.models import Liste
+from django.core.paginator import Paginator
 
 
 @unauthenticated_user2

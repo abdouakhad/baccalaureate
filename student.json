@@ -1,0 +1,16 @@
+[
+	{
+		"student_number":"11",
+		"jury_number":"2",
+		"first_name":"Moustapha",
+		"last_name":"Dieye",
+		"date_of_birth":"2000-12-10",
+		"place_of_birth":"Walo",
+		"school":"Lycee Gendarc",
+		"serie":"S",
+		"department":"Dakar",
+		"ville":"Dakar",
+		"region":"Dakar",
+		"choosen":"False",
+	}
+]
