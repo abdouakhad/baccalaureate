@@ -8,6 +8,7 @@ from .decorators import unauthenticated_user, allowed_users
 # Create your views here.
 
 
+@unauthenticated_user
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -31,6 +32,7 @@ def logout(request):
     return redirect('index')
 
 
+@unauthenticated_user
 def register(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
@@ -58,6 +60,6 @@ def register(request):
     return render(request, 'accounts/register.html')
 
 
-@ login_required(login_url='login')
+@login_required(login_url='login')
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')

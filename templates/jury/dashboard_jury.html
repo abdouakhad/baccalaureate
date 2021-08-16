@@ -1,19 +1,18 @@
 {% extends 'base2.html' %}
 
 {% load static %}
+{% load widget_tweaks %}
+
 
 {% block content %}
-<!-- Showcase For Admin -->
+<!-- Dashboard -->
 <section class="showcase-5 my-5  ">
-    <div class="container md:w-10/12 m-auto h-full bg-my-green py-5 pb-12 px-4 rounded-lg">
-        <p class="font-black text-lg my-1 bg-my-blue w-1/2 m-auto py-3 rounded-lg text-center my-7 text-white">
-            Dashboard
-        </p>
+    <div class="container md:w-10/12 m-auto w-full h-full  py-3   rounded-lg">
         <div class="grid sm:grid-cols-4 grid-cols-2 gap-2">
-            <div class="jury rounded-lg  jury bg-blue-900">
+            <div class="jury rounded-lg jury bg-blue-900">
                 <div class="p-2 pb-6 flex justify-between items-center">
                     <div class="jury">
-                        <p class="font-bold text-lg">159</p>
+                        <p class="font-bold text-lg">{{ jury_number }}</p>
                         <p class="text-sm font-thin">Jury</p>
                     </div>
                     <div class="icon">
@@ -38,10 +37,38 @@
                     </p>
                 </div>
             </div>
+            <div class="jury rounded-lg  jury bg-purple-900">
+                <div class="p-2 pb-6 flex justify-between items-center">
+                    <div class="jury">
+                        <p class="font-bold text-lg">{{ number_student }}</p>
+                        <p class="text-sm font-thin">Eleves</p>
+                    </div>
+                    <div class="icon">
+                        <svg class="w-7" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user"
+                            class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path fill="#10B981"
+                                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="rounded-b-lg p-2 bg-purple-800">
+                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
+                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                                </path>
+                            </svg></a>
+                    </p>
+                </div>
+            </div>
             <div class="jury rounded-lg  jury bg-red-900">
                 <div class="p-2 pb-6 flex justify-between items-center">
                     <div class="jury">
-                        <p class="font-bold text-lg">20.324</p>
+                        <p class="font-bold text-lg">{{ admin }}</p>
                         <p class="text-sm font-thin">Admin</p>
                     </div>
                     <div class="icon">
@@ -66,39 +93,12 @@
                     </p>
                 </div>
             </div>
-            <div class="jury rounded-lg  jury bg-purple-900">
-                <div class="p-2 pb-6 flex justify-between items-center">
-                    <div class="jury">
-                        <p class="font-bold text-lg">1.092</p>
-                        <p class="text-sm font-thin">Utilisateurs</p>
-                    </div>
-                    <div class="icon">
-                        <svg class="w-7" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user"
-                            class="svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512">
-                            <path fill="#10B981"
-                                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
-                            </path>
-                        </svg>
-                    </div>
-                </div>
-                <div class="rounded-b-lg p-2 bg-purple-800">
-                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
-                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
-                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path fill="currentColor"
-                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
-                                </path>
-                            </svg></a>
-                    </p>
-                </div>
-            </div>
+
 
             <div class="jury rounded-lg  jury bg-pink-900">
                 <div class="p-2 pb-6 flex justify-between items-center">
                     <div class="jury">
-                        <p class="font-bold text-lg">58.65</p>
+                        <p class="font-bold text-lg">{{ percentage }}</p>
                         <p class="text-sm font-thin">Pourcentage</p>
                     </div>
                     <div class="icon">
@@ -112,9 +112,9 @@
                     </div>
                 </div>
                 <div class="rounded-b-lg p-2 bg-pink-800">
-                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
-                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
-                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                    <p class='text-center hover:text-gray-300'><a href=""> More Info
+                            <svg class='inline w-3' aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path fill="currentColor"
                                     d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
@@ -126,134 +126,138 @@
         </div>
     </div>
 </section>
+
+<!-- Showcase For Admin -->
+<div class="showcase-admin grid md:grid-cols-2 grid-cols-1 gap-3 container md:w-10/12 m-auto">
+    <div class="form">
+        <div class="bg-my-blue w-full rounded-t">
+            <p class="text-center text-xl py-4 font-black tracking-widest">Entrer Le resultat d'un eleve</p>
+        </div>
+        <form action='{% url "dashboard_jury" %}' method='POST'
+            class="w-full px-2  w-full bg-gray-300 rounded-b py-2 pb-12">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 >
+                <div class="">
+                    {% render_field form.jury name='jury' class='my-2 h-9  w-full bg-my-blue rounded px-3 rounded' %}
+                </div>
+                <div class="">
+                    <!-- <label for=" {{ form.student.id_for_label }}">Student </label> -->
+                {% render_field form.student class='my-2 h-9  w-full bg-my-blue rounded px-3 rounded' %}
+            </div>
+            <div class="">
+                {% render_field form.grades  placeholder='la note' class='my-2 h-9  w-full bg-my-blue rounded px-3 rounded' %}
+            </div>
+            <div class="">
+                {% render_field form.appreciations placeholder="appreciations" class="my-2 h-9  w-full bg-my-blue rounded px-3 rounded" %}
+            </div>
+
+            <div class="submit text-center">
+                <button type="submit"
+                    class="tracking-widest text-xl bg-my-green w-1/3 m-auto hover:bg-green-700 text-white font-bold my-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+    <!-- Table -->
+    <div class="table overflow-x-auto container  ">
+        <p class="text-center bg-my-gray p-auto m-auto tracking-widest p-4 uppercase text-white font-black rounded-t">
+            Dernier ajouté
+        </p>
+        <table class="w-full border text-black  rounded-b text-center" id="table">
+            <thead class="bg-my-green h-14 uppercase text-white font-black">
+                <tr class="h-14">
+                    <th class="">&#8470;</th>
+                    <th class="">Nom</th>
+                    <th>Note</th>
+                    <th>Appreciations</th>
+                    <th></th>
+            </thead>
+            <tbody class="text-thin bg-gray-300">
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>12,03</td>
+                    <td>Assez-Bien </td>
+                    <td><a class=" text-white hover: py-1 px-2 rounded " href="">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
+                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path fill="#1E40AF"
+                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                                </path>
+                            </svg></a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>2</td>
+                    <td>Ousmane Ba</td>
+                    <td>13,14</td>
+                    <td>Assez-bien </td>
+                    <td><a class=" text-white hover: py-1 px-2 rounded " href="">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
+                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path fill="#1E40AF"
+                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                                </path>
+                            </svg></a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>3</td>
+                    <td>Smba Ba</td>
+                    <td>15.45 </td>
+                    <td>Bien </td>
+                    <td><a class=" text-white hover: py-1 px-2 rounded " href="">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
+                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path fill="#1E40AF"
+                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                                </path>
+                            </svg></a>
+                    </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    < <td><a class=" text-white hover: py-1 px-2 rounded " href="">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
+                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path fill="#1E40AF"
+                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                                </path>
+                            </svg></a>
+                        </td>
+                </tr>
+                <tr class="h-10 ">
+                    <td>1</td>
+                    <td>Lamine Ba</td>
+                    <td>77 908 35 36 </td>
+                    <td>Saint-Louis </td>
+                    <td><a class=" text-white hover: py-1 px-2 rounded " href="">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
+                                class="svg-inline--fa fa-eye fa-w-18 w-7 inline" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path fill="#1E40AF"
+                                    d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                                </path>
+                            </svg></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+
+
+
+
+
 <!-- Best Result Sections -->
 
-<div class="best-result container md:w-10/12 m-auto">
-    <div class="title-best sm:w-96 m-auto my-7 bg-my-green p-3 rounded text-center text-lg">
-        <p class="font-black ">
-            Avancement Des travaux
-        </p>
-    </div>
-</div>
 
-<div class="grid md:grid-cols-2 grid-cols-1 my-4">
-    <!-- Table -->
-    <div class="table overflow-x-auto container md:w-10/12 m-auto">
-        <p class="text-center bg-my-gray p-auto m-auto my-3 p-4 uppercase text-white font-black leading-loose">
-            travail lent
-        </p>
-        <table class="w-full border text-black text-center" id="table">
-            <thead class="bg-my-green h-14 uppercase text-white font-black">
-                <tr class="h-14">
-                    <th class="">&#8470;</th>
-                    <th class="">Chef de Jury </th>
-                    <th>Telephone</th>
-                    <th>lieu</th>
-                    <th></th>
-            </thead>
-            <tbody class="text-thin">
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-    <!-- Table -->
-    <div class="table overflow-x-auto container md:w-10/12 m-auto">
-        <p class="text-center bg-my-gray p-auto m-auto my-3 p-4 uppercase text-white font-black leading-loose">
-            travail avancé
-        </p>
-        <table class="w-full border text-black text-center" id="table">
-            <thead class="bg-my-green h-14 uppercase text-white font-black">
-                <tr class="h-14">
-                    <th class="">&#8470;</th>
-                    <th class="">Chef de Jury </th>
-                    <th>Telephone</th>
-                    <th>lieu</th>
-                    <th></th>
-            </thead>
-            <tbody class="text-thin">
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-                <tr class="h-10 ">
-                    <td>1</td>
-                    <td>Lamine Ba</td>
-                    <td>77 908 35 36 </td>
-                    <td>Saint-Louis </td>
-                    <td><a class="bg-my-blue text-white hover:bg-blue-400 py-1 px-2 rounded " href="">Voir plus</a>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-</div>
 {% endblock %}
