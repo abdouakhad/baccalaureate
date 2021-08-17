@@ -18,7 +18,7 @@ background-position: center center;background-size: cover;">
                 </div>
                 <div class="btn my-3 font-black">
 
-                    <a href='feature.html'
+                    <a href="{% url 'feature' %}"
                         class='bg-blue-700 p-1 pl-2 w-28 rounded mr-2 hover:bg-blue-900 hover:text-white'>Chercher
                     </a>
                     <a href='#table' class='p-1 pl-2  bg-my-green w-28 rounded hover:bg-green-700 '>Voir
@@ -120,7 +120,6 @@ background-position: center center;background-size: cover;">
                 <th class="">&#8470;</th>
                 <th class="hide">Naissance</th>
                 <th class="hide">lieu</th>
-
                 <th class="hide">Jury</th>
                 <th class="">Moyenne</th>
                 <th class="hide">Mension</th>
@@ -160,12 +159,11 @@ background-position: center center;background-size: cover;">
                     </a>
                 </div>
                 {% else %}
-                <button class="h-8 w-8  flex justify-center items-center rounded-full bg-my-blue cursor-pointer"
+                <button class="h-8 w-8 mr-1 flex justify-center items-center rounded-full bg-my-blue cursor-pointer"
                     disabled>
                 </button>
                 {%endif %}
                 {% for i in grades.paginator.page_range %}
-                {% with page = 2 %}
                 <div class=" flex h-8 font-medium rounded-full ">
                     {% if grades.number == i %}
                     <div

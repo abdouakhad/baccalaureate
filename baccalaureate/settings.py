@@ -137,7 +137,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATE_INPUT_FORMAT = '%d-%m-%Y'
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 MESSAGE_TAGS = {
     messages.INFO: '',

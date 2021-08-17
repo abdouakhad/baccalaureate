@@ -145,3 +145,57 @@ li .w-iconWidth:hover{
     background-position: center center;
     background-size: cover;
 }
+
+
+/* Styling the Admin Page */
+#header{
+    height: 50px;
+    background-color: #1E40AF;
+    color: #fff;
+}
+#header {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    overflow: hidden;
+}
+#branding h1 {
+    color: #fff;
+}
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #fff;
+}
+.module caption, .inline-group h2 {
+
+    background-color: #10B981;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+    color: #1E40AF;
+}
+
+#changelist-filter h2 {
+    background-color: #10B981;
+}
+
+input[type="submit"], button  {
+    background-color: #1E40AF;
+}
+.submit-row input.default{
+    background-color: #1E40AF;
+}
+
+
+.module h2, .module caption, .inline-group h2{
+    background-color: #1E40AF;
+}
+.selector-chosen h2, .selector-available h2{
+    background-color: #1E40AF;
+}
+div.breadcrumbs{
+    background-color: #10B981;
+}

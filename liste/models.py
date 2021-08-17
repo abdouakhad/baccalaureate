@@ -10,7 +10,7 @@ class Liste (models.Model):
         ('T', 'T')
     ]
 
-    student_number = models.IntegerField(null=False, blank=False)
+    student_number = models.IntegerField(null=False, blank=False, unique=True)
     jury_number = models.PositiveIntegerField(null=False, blank=False)
     first_name = models.CharField(max_length=100, null=False, blank=False)
     last_name = models.CharField(max_length=100, null=False, blank=False)
@@ -24,6 +24,10 @@ class Liste (models.Model):
     region = models.CharField(max_length=100, null=True, blank=False)
     created_date = models.DateTimeField(auto_now_add=True)
     choosen = models.BooleanField(default=False)
+
+    @ property
+    def lifespan(self):
+        return '%s - present' % self.date_of_birth.strftime('%d/%m/%Y')
 
     def __str__(self):
         return '{} {} {}'.format(self.first_name, self.last_name, (self.student_number))
