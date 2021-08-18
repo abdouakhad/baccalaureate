@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -29,3 +29,11 @@ def index(request):
 # @allowed_users(allowed_roles=['client'])
 def about(request):
     return render(request, 'pages/about.html')
+
+
+def student_info(request, student_id):
+    student_info = get_object_or_404(Grade, pk=student_id)
+    context = {
+        'grade': student_info,
+    }
+    return render(request, 'info/student.html', context)

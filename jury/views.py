@@ -22,7 +22,7 @@ def login_admin(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            if int(my_id) != 123456789:
+            if int(my_id) != 1234:
                 print(my_id)
                 messages.error(
                     request, "Votre numero d'identite jury est incorrecte.")
@@ -59,7 +59,7 @@ def register_admin(request):
             if User.objects.filter(username=username).exists():
                 messages.error(request, "Ce nom d'utilisateur est deja pris")
                 return redirect('register_admin')
-            if int(my_id) != 123456789:
+            if int(my_id) != 1234:
                 print(my_id)
                 messages.error(
                     request, "Votre numero d'identite jury est incorrecte.")

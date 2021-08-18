@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{}
+{% block content %}
+<div class="bg-gray-100 py-10 ">
+    <main class="p-3 increased bg-gray-300 main sm:w-8/12 w-11/12 m-auto m-auto rounded border">
+        <div class="upper text-black px-2  border-b border-gray-400">
+            <div class="name mb-4">
+                <div class=" font-serif capitalize text-2xl text-center tracking widest">
+                    {{ grade.student.first_name}}
+                    {{ grade.student.last_name}}</div>
+            </div>
+            <div class="infos ">
+                <div class="numbers grid sm:grid-cols-2 grid grid-cols-1  gap-2 mb-2">
+                    <p class="flex sm:space-x-4 space-x-8  items-center  ">
+                        <span class="font-serif   block">Numero de l'eleve</span>
+                        <span class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.student_number}}</span>
+                    </p>
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Numero du jury</span>
+                        <span class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.jury_number}}</span>
+                    </p>
+                </div>
+                <div class="numbers grid sm:grid-cols-2 grid grid-cols-1 gap-2 mb-2">
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Date de Naissance</span>
+                        <span
+                            class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.date_of_birth|date:'d-m-Y'}}</span>
+                    </p>
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Lieu de Naissance</span>
+                        <span class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.place_of_birth}}</span>
+                    </p>
+                </div>
+                <div class="numbers grid sm:grid-cols-2 grid grid-cols-1 gap-2 mb-2">
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Ecole </span>
+                        <span class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.school}}</span>
+                    </p>
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Serie</span>
+                        <span class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.serie}}</span>
+                    </p>
+                </div>
+                <div class="numbers grid sm:grid-cols-2 grid grid-cols-1 gap-2 mb-2">
+                    <p class="flex sm:space-x-4 space-x-8  space-x-8 items-center">
+                        <span class="font-serif ">Ville</span>
+                        <span class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.ville}}</span>
+                    </p>
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Region</span>
+                        <span class="md:text-xl text-my-blue block md:mr-3">{{ grade.student.region}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="upper text-white px-2 md:grid md:grid-cols-3 gap-3 py-2">
+            <div class="rank flex flex-col justify-center items-center rounded py-3 my-2 bg-my-blue">
+                <p class="font-serif text-lg  font-black">1</p>
+                <p class="font-bold">rang</p>
+            </div>
+            <div class="rank flex flex-col justify-center items-center my-2 py-3 bg-my-green rounded">
+                <p class="font-serif text-lg font-black">{{ grade.grades }}</p>
+                <p class="font-bold">Moyenne</p>
+            </div>
+            <div class="rank flex flex-col justify-center items-center my-2 py-3 bg-my-gray rounded">
+                <p class="font-serif text-lg font-black capitalize">{{ grade.appreciations }}</p>
+                <p class="font-bold">Mention</p>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

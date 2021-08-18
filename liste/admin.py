@@ -13,6 +13,7 @@ class ListeAdmin(admin.ModelAdmin):
     list_filter = ('student_number', 'jury_number')
     search_fields = ('student_number', 'jury_number',
                      'first_name', 'last_name')
+    list_per_page = 25
 
 
 admin.site.register(Liste, ListeAdmin)

@@ -131,7 +131,9 @@ background-position: center center;background-size: cover;">
             <tr {% if forloop.counter|divisibleby:2 %} class="h-10 " {% else %} class="h-10 bg-my-gray text-white"
                 {% endif %}>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ grade.student.first_name}} {{ grade.student.last_name}} </td>
+                <td class="hover:text-my-green"><a href="{% url 'student_info' grade.id %}"
+                        class="block">{{ grade.student.first_name}}
+                        {{ grade.student.last_name}}</a> </td>
                 <td>{{grade.student.student_number}}</td>
                 <td class="hide">{{ grade.student.place_of_birth }} </td>
                 <td class="hide">{{ grade.student.place_of_birth}}</td>
