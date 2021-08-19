@@ -1,1 +1,65 @@
-<h1>Jury's Info</h1>
+{% extends 'base.html' %}
+{% block title %}
+| {{ jury.name }}
+{% endblock %}
+{% block content %}
+<div class="bg-gray-100 py-10 ">
+    <main class="p-3 increased bg-gray-300 main sm:w-8/12 w-11/12 m-auto m-auto rounded border">
+        <div class="upper text-black px-2  border-b border-gray-400">
+            <div class="name mb-4">
+                <div class=" font-serif capitalize text-2xl text-center tracking widest">
+                    {{ jury.name }}
+                </div>
+            </div>
+            <div class="infos ">
+                <div class="numbers grid sm:grid-cols-2 grid grid-cols-1  gap-2 mb-2">
+                    <p class="flex sm:space-x-4 space-x-8  items-center  ">
+                        <span class="font-serif   block">Numero du jury</span>
+                        <span class="md:text-base text-my-blue block md:mr-3">{{ jury.jury_number}}</span>
+                    </p>
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Ecole </span>
+                        <span class="md:text-base text-my-blue block md:mr-3">{{ jury.school_affected }}</span>
+                    </p>
+                </div>
+                <div class="numbers grid sm:grid-cols-2 grid grid-cols-1 gap-2 mb-2">
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Date de Naissance</span>
+                        <span
+                            class="md:text-base text-my-blue block md:mr-3">{{ jury.date_of_birth|date:'d-m-Y'}}</span>
+                    </p>
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Lieu de Naissance</span>
+                        <span class="md:text-base text-my-blue block md:mr-3">{{ jury.place_of_birth}}</span>
+                    </p>
+                </div>
+                <div class="numbers grid sm:grid-cols-2 grid grid-cols-1 gap-2 mb-2">
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Telephone </span>
+                        <span class="md:text-base text-my-blue block md:mr-3">{{ jury.phone_number}}</span>
+                    </p>
+                    <p class="flex sm:space-x-4 space-x-8  items-center">
+                        <span class="font-serif ">Nom </span>
+                        <span class="md:text-base text-my-blue block md:mr-3">{{ jury.user.username }}</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="upper text-white px-2 md:grid md:grid-cols-3 gap-3 py-2">
+            <div class="rank flex flex-col justify-center items-center rounded py-3 my-2 bg-my-blue">
+                <p class="font-serif text-lg  font-black">{{ eleves }}</p>
+                <p class="font-bold">Eleves</p>
+            </div>
+            <div class="rank flex flex-col justify-center items-center my-2 py-3 bg-my-green rounded">
+                <p class="font-serif text-lg font-black">{{ admin }}</p>
+                <p class="font-bold">Admins</p>
+            </div>
+            <div class="rank flex flex-col justify-center items-center my-2 py-3 bg-my-gray rounded">
+                <p class="font-serif text-lg font-black capitalize">{{ failed }}</p>
+                <p class="font-bold">Echoués</p>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

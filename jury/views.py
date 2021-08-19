@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, Group
 from django.contrib import messages, auth
 from django.core.paginator import Paginator
@@ -117,12 +117,11 @@ def dashboard_jury(request):
     # Counting the number of students that succeed
     admin = grades.filter(grades__gte=10).order_by('-created_date')
     display_grades = admin
+    admin = admin.count()
     display_grades_rank = admin.order_by('-grades')
     paginator = Paginator(display_grades_rank, 5)  # Show 3 grades per page.
     page_number = request.GET.get('page')
     page_obj_rank = paginator.get_page(page_number)
-
-    admin = admin.count()
 
     # Counting the overall number of student
     number_student = student.count()
@@ -143,3 +142,25 @@ def dashboard_jury(request):
         'display_grades': display_grades,
     }
     return render(request, 'jury/dashboard_jury.html', context)
+
+
+@login_required(login_url='login_admin')
+@allowed_users(allowed_roles=['jury'])
+def jury_info(request, jury_id):
+    jury_info = get_object_or_404(Jury, pk=jury_id)
+
+    jury = Jury.objects.get(user=request.user)
+    jury_number = jury.jury_number
+
+    grades = Grade.objects.filter(jury=jury_number)
+    admin = grades.filter(grades__gte=10).order_by('-created_date').count()
+    failed = grades.filter(grades__lte=10).order_by('-created_date').count()
+
+    eleves = Liste.objects.filter(jury_number=jury_number).count()
+    context = {
+        'jury': jury_info,
+        'eleves': eleves,
+        'admin': admin,
+        'failed': failed,
+    }
+    return render(request, 'info/jury.html', context)
