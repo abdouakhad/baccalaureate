@@ -117,6 +117,10 @@ def dashboard_jury(request):
     # Counting the number of students that succeed
     admin = grades.filter(grades__gte=10).order_by('-created_date')
     display_grades = admin
+    display_grades_rank = admin.order_by('-grades')
+    paginator = Paginator(display_grades_rank, 5)  # Show 3 grades per page.
+    page_number = request.GET.get('page')
+    page_obj_rank = paginator.get_page(page_number)
 
     admin = admin.count()
 
@@ -130,6 +134,7 @@ def dashboard_jury(request):
         percentage = admin/number_student * 100
 
     context = {
+        'display_grades_rank': page_obj_rank,
         'form': form,
         'number_student': number_student,
         'jury_number': jury_number,

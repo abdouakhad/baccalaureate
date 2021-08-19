@@ -1,5 +1,9 @@
 {% extends 'base2.html' %}
 
+{% block title %}
+| jury {{ grade.student.jury_number }}
+{% endblock %}
+
 {% load static %}
 {% load widget_tweaks %}
 
@@ -26,9 +30,9 @@
                     </div>
                 </div>
                 <div class="rounded-b-lg p-2 bg-blue-800">
-                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
-                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
-                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                    <p class='text-center hover:text-gray-300'><a href="" class='block'> More Info <svg
+                                class='inline w-3' aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path fill="currentColor"
                                     d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
@@ -54,9 +58,9 @@
                     </div>
                 </div>
                 <div class="rounded-b-lg p-2 bg-purple-800">
-                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
-                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
-                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                    <p class='text-center hover:text-gray-300'><a href="" class='block'> More Info <svg
+                                class='inline w-3' aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path fill="currentColor"
                                     d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
@@ -82,9 +86,9 @@
                     </div>
                 </div>
                 <div class="rounded-b-lg p-2 bg-red-800">
-                    <p class='text-center hover:text-gray-300'><a href=""> More Info <svg class='inline w-3'
-                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right"
-                                class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
+                    <p class='text-center hover:text-gray-300'><a href="" class='block'> More Info <svg
+                                class='inline w-3' aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path fill="currentColor"
                                     d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
@@ -111,8 +115,8 @@
                         </svg>
                     </div>
                 </div>
-                <div class="rounded-b-lg p-2 bg-pink-800">
-                    <p class='text-center hover:text-gray-300'><a href=""> More Info
+                <div class="rounded-b-lg p-2 bg-pink-800 pointer-events-none">
+                    <p class='text-center text-gray-300'><a href="" class='block'> More Info
                             <svg class='inline w-3' aria-hidden="true" focusable="false" data-prefix="fas"
                                 data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -195,20 +199,67 @@
             </tbody>
         </table>
     </div>
-</div> -->
+</div>
+
+
+<!-- the 10 best Students of the jury so far -->
+<div class="best-result container md:w-10/12 m-auto">
+    <div
+        class="title-best sm:w-96 m-auto my-3 bg-my-green p-3  text-center text-lg border-solid sm:rounded border-4 border-my-gray">
+        <p class="font-black ">
+            Les 10 Meilleurs Eleves de la jury
+        </p>
+    </div>
+</div>
+<!-- Table -->
+<div class="table overflow-x-auto container md:w-10/12 m-auto">
+    <table class="w-full border text-black text-center border-solid sm:rounded border-4 border-my-gray" id="table">
+        <thead class="bg-my-green h-14 uppercase text-white font-black">
+            <tr class="h-14">
+                <th class="">rang</th>
+                <th class="">Nom</th>
+                <th class="">&#8470;</th>
+                <th class="hide">Naissance</th>
+                <th class="hide">lieu</th>
+                <th class="">Moyenne</th>
+                <th class="hide">Mension</th>
+                <th class="">Serie</th>
+        </thead>
+        <tbody class="text-thin">
+            {% for grade in display_grades_rank%}
+            {% if forloop.counter < 11%}
+
+            <tr {% if forloop.counter|divisibleby:2 %} class="h-10 " {% else %} class="h-10 bg-my-gray text-white"
+                {% endif %}>
+                <td>{{ forloop.counter }}</td>
+                <td class="hover:text-my-green"><a href="{% url 'student_info' grade.id %}"
+                        class="block">{{ grade.student.first_name}}
+                        {{ grade.student.last_name}}</a> </td>
+                <td>{{grade.student.student_number}}</td>
+                <td class="hide">{{ grade.student.place_of_birth }} </td>
+                <td class="hide">{{ grade.student.place_of_birth}}</td>
+                <td>{{ grade.grades}}</td>
+                <td class="hide">{{ grade.appreciations}}</td>
+                <td>{{ grade.student.serie}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div>Les Dix Meilleurs Eleves</div>
 
 
 
 
+    <!-- Best Result Sections -->
 
+    <script>
+        document.getElementById('id_jury').value = '{{ jury_number }}';
+        //This can allow me to select the second person all the time 
+        //$("#id_student").prop("selectedIndex", 1);
+        document.getElementById("id_student").options[0].innerHTML = "Les Eleves";
+    </script>
 
-<!-- Best Result Sections -->
-
-<script>
-    document.getElementById('id_jury').value = '{{ jury_number }}';
-    //This can allow me to select the second person all the time 
-    //$("#id_student").prop("selectedIndex", 1);
-    document.getElementById("id_student").options[0].innerHTML = "Les Eleves";
-</script>
-
-{% endblock %}
+    {% endblock %}

@@ -33,6 +33,7 @@ def about(request):
 
 def student_info(request, student_id):
     student_info = get_object_or_404(Grade, pk=student_id)
+    # I can grab the whole element and order it in here
     context = {
         'grade': student_info,
     }
