@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'liste',
     'jury',
-    'accounts',
-    'widget_tweaks',
+    'accounts'
 ]
 
 MIDDLEWARE = [
