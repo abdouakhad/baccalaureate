@@ -1,3 +1,3 @@
 Screen shot of the website
 
-![alt text] (./show.png)
+![image text](./show.png)
