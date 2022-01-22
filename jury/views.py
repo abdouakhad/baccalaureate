@@ -118,7 +118,7 @@ def dashboard_jury(request):
     admin = grades.filter(grades__gte=10).order_by('-created_date')
     display_grades = admin
     admin = admin.count()
-    display_grades_rank = admin.order_by('-grades')
+    display_grades_rank = display_grades.order_by('-grades')
     paginator = Paginator(display_grades_rank, 5)  # Show 3 grades per page.
     page_number = request.GET.get('page')
     page_obj_rank = paginator.get_page(page_number)
